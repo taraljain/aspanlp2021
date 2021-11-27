@@ -5,7 +5,10 @@ app = Flask(__name__)
 @app.route("/", methods = ["GET", "POST"])
 def NLP():
     if request.method == "POST":
-        print(request.form["sentence"])
+        sentence = request.form["sentence"]
+
+        # Find the sentiment using our NLP Project and display
+        return render_template('index.html', sentence = sentence)
 
     return render_template('index.html')
 
